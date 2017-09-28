@@ -64,17 +64,53 @@
             switch (this.transition) {
 
                 case "fade":
-                    this._fadeIn(selected);
+                    this._fadeIn();
                 break;
 
+                case "slideLeft":
+                    this._slideLeft();
+                break;
+
+	            case "zoomin":
+		            this._zoomIn();
+                break;
             } // end switch
 
             super._selectedPageChanged(selected, old);
 
 	    } // end
 
+
+        _zoomIn() {
+		    if (this.selectedItem) {
+			    var keyframes = [{transform: 'scale3d(.9, .9, .9)  ', opacity: '0', offset: 0},
+				    {transform: 'none', opacity: '1', offset: 1}];
+			    var timing = {duration: 900};
+
+			    return  this.selectedItem.animate(keyframes, timing);
+
+		    } // end if
+	    } // end fun
+
 	    /**
          *
+	     */
+	    _slideLeft() {
+		    if (this.selectedItem) {
+
+			    var keyframes = [
+				    {opacity: '0', transform: 'translate3d(100%, 0, 0)', offset: 0},
+				    {opacity: '1', transform: 'none', offset: 1}];
+			    var timing = {duration: 700};
+
+			    return this.selectedItem.animate(keyframes, timing);
+
+		    } // end
+
+        } // end
+
+	    /**
+         * Does a quick Fade in
 	     */
 	    _fadeIn() {
 
