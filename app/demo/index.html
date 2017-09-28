@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>clearandfizzy-pages-effects demo</title>
+
+    <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../clearandfizzy-pages-effects.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        code {
+          background-color: #eee;
+          color: #222;
+          border-radius: 2px;
+          padding: 2px;
+        }
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+
+
+      <h3>Basic clearandfizzy-pages-effects demo</h3>
+      <demo-snippet>
+        <template>
+          <clearandfizzy-pages-effects selected="0" transition="fade">
+            <div>1</div>
+            <div>2</div>
+          </clearandfizzy-pages-effects>
+          <script>
+	          var pages = document.querySelector('clearandfizzy-pages-effects');
+	          pages.addEventListener('click', function(e) {
+		          pages.selectNext();
+	          });
+          </script>
+        </template>
+      </demo-snippet>
+    </div>
+
+
+  </body>
+</html>

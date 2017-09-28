@@ -1,0 +1,99 @@
+<link rel="import" href="bower_components/polymer/polymer-element.html">
+<link rel="import" href="bower_components/iron-pages/iron-pages.html">
+
+<dom-module id="clearandfizzy-pages-effects">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      :host > ::slotted(:not(.iron-selected)) {
+          display: none !important;
+          background-color: green  !important;
+      }
+
+      :host > .iron-selected {
+          display: block;
+          background-color: red !important;
+      }
+
+    </style>
+
+    <iron-pages
+        transition$="{{transition}}"
+        selected$="{{selected}}">
+      <slot></slot>
+    </iron-pages>
+
+  </template>
+
+  <script>
+    /**
+     * `clearandfizzy-pages-effects`
+     *
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ClearandfizzyPagesEffects extends customElements.get('iron-pages')  {
+        static get is() { return 'clearandfizzy-pages-effects'; }
+
+        static get properties() {
+            return {
+            	transition: {
+                    type: String,
+                },
+
+                prop1: {
+                    type: String,
+                    value: 'clearandfizzy-pages-effects'
+                }
+            };
+        } // end properties
+
+        ready() {
+          super.ready();
+        } // end fun
+
+	    /**
+         *
+	     */
+	    _selectedPageChanged(selected, old) {
+            switch (this.transition) {
+
+                case "fade":
+                    this._fadeIn(selected);
+                break;
+
+            } // end switch
+
+            super._selectedPageChanged(selected, old);
+
+	    } // end
+
+	    /**
+         *
+	     */
+	    _fadeIn() {
+
+        	if (this.selectedItem) {
+
+		        this.selectedItem.animate([
+					    {opacity: 0.4 },
+					    {opacity: 1.0 }
+				    ],
+				    {
+					    duration: 1000,
+				    });
+		    } // end
+
+        } // end
+
+    } // end class
+
+    window.customElements.define(ClearandfizzyPagesEffects.is, ClearandfizzyPagesEffects);
+
+  </script>
+</dom-module>
