@@ -16,7 +16,7 @@
 
     <iron-pages
         transition$="{{transition}}"
-        speed$="speed"
+        speed$="{{speed}}"
         selected$="{{selected}}">
       <slot></slot>
     </iron-pages>
@@ -75,15 +75,15 @@
             switch (this.transition) {
 
                 case "fade":
-                    this._fadeIn(elem, speed);
+                    this._fade(elem, speed);
                 break;
 
                 case "slideLeft":
                     this._slideLeft(elem, speed);
                 break;
 
-	            case "zoomin":
-		            this._zoomIn(elem, speed);
+	            case "zoom":
+		            this._zoom(elem, speed);
                 break;
             } // end switch
 
@@ -92,7 +92,7 @@
 	    } // end
 
 
-        _zoomIn(elem, speed) {
+        _zoom(elem, speed) {
 		    if (elem) {
 			    var keyframes = [{transform: 'scale3d(.2, .2, .2)  ', opacity: '0', offset: 0},
 				    {transform: 'none', opacity: '1', offset: 1}];
@@ -123,7 +123,7 @@
 	    /**
          * Does a quick Fade in
 	     */
-	    _fadeIn(elem, speed) {
+	    _fade(elem, speed) {
 
         	if (elem) {
 
