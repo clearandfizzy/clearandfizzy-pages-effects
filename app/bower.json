@@ -1,8 +1,25 @@
 {
   "name": "clearandfizzy-pages-effects",
+  "version": "1.0.1",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "description": "Adds animation transitions to iron-pages",
+  "private": true,
   "main": "clearandfizzy-pages-effects.html",
+  "authors": [
+    "Clearandfizzy <support@clearandfizzy.com>"
+  ],
+  "keywords": [
+    "web-components",
+    "polymer",
+    "clearandfizzy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:clearandfizzy/clearandfizzy-pages-effects.git"
+  },
   "dependencies": {
-    "polymer": "Polymer/polymer#^2.0.0"
+    "polymer": "Polymer/polymer#^2.0.0",
+    "iron-pages": "PolymerElements/iron-pages#^2.0.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
