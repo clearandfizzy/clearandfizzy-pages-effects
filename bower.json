@@ -1,6 +1,6 @@
 {
   "name": "clearandfizzy-pages-effects",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "http://polymer.github.io/LICENSE.txt",
   "description": "Adds animation transitions to iron-pages",
   "private": true,

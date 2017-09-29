@@ -4,13 +4,15 @@
 <dom-module id="clearandfizzy-pages-effects">
   <template>
     <style>
-      :host {
-        display: block;
-      }
 
-      :host > ::slotted(:not(.iron-selected)) {
-          display: none !important;
-      }
+        :host > iron-pages {
+            overflow: hidden;
+        }
+
+        :host > ::slotted(:not(.iron-selected)) {
+            display: none !important;
+        }
+
 
     </style>
 
@@ -72,13 +74,21 @@
             	speed = this.defaultSpeed;
             } // end if
 
-            switch (this.transition) {
+            switch ( this.transition.toLowerCase() ) {
 
                 case "fade":
                     this._fade(elem, speed);
                 break;
 
-                case "slideLeft":
+	            case "slideup":
+		            this._slideUp(elem, speed);
+	            break;
+
+	            case "slideright":
+		            this._slideRight(elem, speed);
+	            break;
+
+	            case "slideleft":
                     this._slideLeft(elem, speed);
                 break;
 
@@ -102,6 +112,34 @@
 
 		    } // end if
 	    } // end fun
+
+	    _slideRight(elem, speed) {
+		    if (elem) {
+
+			    var keyframes = [
+				    {opacity: '0', transform: 'translate3d(-100%, 0, 0)', offset: 0},
+				    {opacity: '1', transform: 'none', offset: 1}];
+			    var timing = {duration: speed};
+
+			    return elem.animate(keyframes, timing);
+
+		    } // end
+
+	    } // end fun
+
+	    _slideUp(elem, speed) {
+		    if (elem) {
+
+			    var keyframes = [
+				    {opacity: '0', transform: 'translate3d(0, 100%, 0)', offset: 0},
+				    {opacity: '1', transform: 'none', offset: 1}];
+			    var timing = {duration: speed};
+
+			    return elem.animate(keyframes, timing);
+
+		    } // end
+
+        } // end fun
 
 	    /**
          *
